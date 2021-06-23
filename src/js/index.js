@@ -37,7 +37,7 @@ const counterReducer = (state = 0, action) => {
 };
 const store = createStore(counterReducer);
 
-/* imprime en consola cada vez que haya un cambio  */
+/* imprime en consola cada vez que haya un cambio */
 /* store.subscribe(() => {
 	console.log(store.getState());
 }); */
