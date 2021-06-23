@@ -1,24 +1,60 @@
-import React from "react";
+/* import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const actionIncremented = {
+	type: "@counter/incremented"
+};
+const actionDecremented = {
+	type: "@counter/decremented"
+};
+const actionReseted = {
+	type: "@counter/reseted"
+};
 
-//create your first component
+const counterReducer = (state = 0, action) => {
+	switch (action.type) {
+		case "@counter/incremented":
+			return state + 1;
+		case "@counter/decremented":
+			return state - 1;
+		case "@counter/reseted":
+			return 0;
+		default:
+			return state;
+	}
+};
+const store = createStore(counterReducer);
+
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
 export function Home() {
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			{store.getState()}
+			<h1>Hola mundo kelokeeee .</h1>
+			<button
+				onClick={() => {
+					store.dispatch(actionIncremented);
+				}}>
+				+
+			</button>
+			<button
+				onClick={() => {
+					store.dispatch(actionDecremented);
+				}}>
+				-
+			</button>
+			<button
+				onClick={() => {
+					store.dispatch(actionReseted);
+				}}>
+				Reset
+			</button>
 		</div>
 	);
 }
+/* renderApp()
+store.subscribe(renderApp) */
